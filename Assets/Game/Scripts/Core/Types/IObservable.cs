@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Game.Core.Types
 {
-    public interface IObservable<TObserver> where TObserver : IObserver
+    public interface IObservable<T> where T : IObserver
     {
-        IEnumerable<TObserver> Observers { get; }
-        void Add(TObserver observer);
-        void Remove(TObserver observer);
+        IEnumerable<T> Observers { get; }
+        void Add(T observer);
+        void Remove(T observer);
     }
 }

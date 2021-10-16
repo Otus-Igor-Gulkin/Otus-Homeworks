@@ -1,4 +1,5 @@
 using Game.Core.Input;
+using Game.Core.SaveSystem;
 using Game.Core.Services;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Game.Core {
 
         public override void InstallBindings() {
             Container.Bind<IInputService>().FromComponentInNewPrefab(_standaloneInput).AsSingle().NonLazy();
+            Container.Bind<ISaveService>().To<SaveService>().AsSingle().NonLazy();
         }
     }
 }
