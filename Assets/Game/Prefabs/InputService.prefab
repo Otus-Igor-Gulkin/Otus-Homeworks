@@ -85,6 +85,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5a82197f-6cc3-465b-a076-6368d62e564f
     m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 77815426312424370}
+        m_TargetAssemblyTypeName: Game.Core.Input.StandaloneInput, Game.Core
+        m_MethodName: OnQuickSave
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 75175f22-5ef7-4d37-a17e-279c178143c5
+    m_ActionName: Gameplay/QucikSave[/Keyboard/f5]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 77815426312424370}
+        m_TargetAssemblyTypeName: Game.Core.Input.StandaloneInput, Game.Core
+        m_MethodName: OnQuickLoad
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5f09ebad-59f1-4165-accd-7d2adb0f4f07
+    m_ActionName: Gameplay/QuickLoad[/Keyboard/f6]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
