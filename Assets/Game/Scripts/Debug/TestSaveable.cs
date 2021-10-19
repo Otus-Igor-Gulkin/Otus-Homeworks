@@ -1,42 +1,44 @@
 using Game.Core.SaveSystem;
 using Game.Core.Services;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Experiment
 {
-    public class TestSaveable : MonoBehaviour, ISaveable {
+    public class TestSaveable : MonoBehaviour, ISaveable
+    {
         private ISaveService _saveService;
 
+        private TestCharacterRepository _repository;
+        
         [Inject]
-        public void Construct(ISaveService saveService) {
+        public void Construct(ISaveService saveService, TestCharacterRepository repository)
+        {
             _saveService = saveService;
+            _repository = repository;
         }
 
-        private void OnEnable() {
-            Register();
+        private void OnEnable()
+        {
+            _saveService.RegisterListener(this);
         }
 
-        private void OnDisable() {
-            Unregister();
+        private void OnDisable()
+        {
+            _saveService.UnregisterListener(this);
         }
 
-        public void Save() {
-            _saveService.Save("TestInt", 0);
+        void ISaveable.OnSave()
+        {
+            const int testValue = 0;
+            Debug.Log($"Saving value {testValue}");
+            _repository.SaveTestValue(testValue);
         }
 
-        public void Load() {
-            _saveService.Load<int>("TestInt");
-        }
-
-        public void Register() {
-            _saveService.Add(this);
-        }
-
-        public void Unregister() {
-            _saveService.Remove(this);
+        void ISaveable.OnLoad()
+        {
+            var testValue = _repository.LoadTestValue();
+            Debug.Log($"Loading value {testValue}");
         }
     }
 }
